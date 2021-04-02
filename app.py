@@ -1,11 +1,13 @@
 import flask
 from flask import request, jsonify
-from flask_cors import cors
+from flask_cors import CORS, cross_origin
 from random import randrange
 import json
 import random
 
 app = flask.Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 with open("cat-facts.json") as json_file:
   cat_data = json.load(json_file)
