@@ -6,7 +6,6 @@ import json
 import random
 
 app = flask.Flask(__name__)
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 with open("cat-facts.json") as json_file:
   cat_data = json.load(json_file)
@@ -25,6 +24,7 @@ def page_not_found(e):
   return "<h1>Error 404:</1><p>The resource could not be found.</p>", 404
 
 @app.route('/api/v1/facts', methods=['GET'])
+@cross_origin() # allow all origins all methods.
 def api_number():
   results = {}
   
