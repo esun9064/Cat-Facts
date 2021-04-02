@@ -1,10 +1,12 @@
 import flask
 from flask import request, jsonify
+from flask_cors import cors
 from random import randrange
 import json
 import random
 
 app = flask.Flask(__name__)
+CORS(app)
 
 with open("cat-facts.json") as json_file:
   cat_data = json.load(json_file)
