@@ -6,7 +6,7 @@ import json
 import random
 
 app = flask.Flask(__name__)
-CORS(app)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 with open("cat-facts.json") as json_file:
   cat_data = json.load(json_file)
